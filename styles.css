@@ -1,0 +1,79 @@
+@import "compass/css3";
+
+@import "compass/css3/transform";
+
+$frame_width:     300px; // Length of cylinder circumference
+$image_width:     300px;  // Image width
+$frame_height:    160px;  // Cylinder height
+$strips_count:    34;     // Amount of polygons
+$strip_width:     $frame_width / $strips_count;  // Polygon width
+$strip_rotateY:   (360 / $strips_count);         // Step rotation degree for each polygon
+$strip_translateZ: ($frame_width / pi() / 2) - 5;// Position of polygons on the Z axis
+
+body {
+  background:#fff;
+}
+
+#container {
+  position: relative;
+  text-align: center;
+  margin: 100px 0 0 430px;
+  width: 960px;
+}
+
+#container:hover * {
+  -webkit-animation-play-state: paused;
+  -moz-animation-play-state: paused;
+  -o-animation-play-state: paused;
+  animation-play-state: paused;
+}
+
+#frame {
+  width: $strip_width;
+  @include transform-style(preserve-3d);
+  @include transform(rotateX(12deg) rotateY(0deg)     rotateZ(0deg) translate3d(0px, 0px, 0px));
+}
+.strip {
+  -webkit-animation: spin 25s infinite linear;
+  -moz-animation: spin 25s infinite linear;
+  -o-animation: spin 25s infinite linear;
+  @include transform-style(preserve-3d);
+}
+
+.strip div {
+  position: absolute;
+  background: #000 url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBZVGJH4pP3vBnR9nT6A3Lr_iAMM4RWvtO7HBBAugNOoiZrhacnA');
+
+  width: $strip_width;
+  height: $frame_height;
+
+  border-top: solid 5px #fff;
+  border-bottom: solid 5px #fff;
+
+  opacity: 1;
+}
+
+.strip {
+  .strip-1 {
+    background-position: 0 0;
+    @include transform(rotateY(0deg) translateZ(#{$strip_translateZ}));
+  }
+
+  @for $i from 2 through $strips_count {
+    .strip-#{$i} {
+      background-position: #{$image_width - ($i - 1) * $strip_width} 0;
+      @include transform(rotateY(#{($i - 1) * $strip_rotateY}deg) translateZ(#{$strip_translateZ}));
+    }
+  }
+}
+
+
+@-moz-keyframes spin {
+  from { -moz-transform: rotateY(0)}
+  to   { -moz-transform: rotateY(-360deg)}
+}
+
+@-webkit-keyframes spin {
+  from { -webkit-transform: rotateY(0)}
+  to   { -webkit-transform: rotateY(-360deg)}
+}
