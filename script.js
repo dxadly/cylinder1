@@ -1,10 +1,10 @@
-import * as THREE from '//cdn.skypack.dev/three@0.129?min'
-import { OrbitControls } from '//cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls?min'
-import { EffectComposer, Pass, FullScreenQuad } from '//cdn.skypack.dev/three@0.129.0/examples/jsm/postprocessing/EffectComposer?min'
-import { RenderPass } from '//cdn.skypack.dev/three@0.129.0/examples/jsm/postprocessing/RenderPass?min'
-import gsap from '//cdn.skypack.dev/gsap';
-import { CSGModeller } from '//cdn.jsdelivr.net/gh/ycw/three-csg-modeller@0.1.10/src/index.js'
-import { DualBloomPassGen } from '//cdn.jsdelivr.net/gh/ycw/three-dual-bloom@1.1.7/src/index.js'
+import * as THREE from "https://cdn.skypack.dev/three@0.129?min"
+import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls?min"
+import { EffectComposer, Pass, FullScreenQuad } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/postprocessing/EffectComposer?min"
+import { RenderPass } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/postprocessing/RenderPass?min'
+import gsap from 'https://cdn.skypack.dev/gsap';
+import { CSGModeller } from 'https://cdn.jsdelivr.net/gh/ycw/three-csg-modeller@0.1.10/src/index.js'
+import { DualBloomPassGen } from 'https://cdn.jsdelivr.net/gh/ycw/three-dual-bloom@1.1.7/src/index.js'
 
 // ----
 // main ( @2021-05-31 )
